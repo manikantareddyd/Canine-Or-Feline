@@ -24,6 +24,8 @@ class Data:
 			splitlines = rawTxt.split('\n')[:-1]
 			for line in splitlines:
 				vector = line.split(' ')
+				vector = np.array([float(vector[i]) for i in range(len(vector))])
+				vector = vector / np.linalg.norm(vector,2)
 				canines[name].append(vector)
 
 		for cat in cats:
@@ -35,6 +37,8 @@ class Data:
 			splitlines = rawTxt.split('\n')[:-1]
 			for line in splitlines:
 				vector = line.split(' ')
+				vector = np.array([float(vector[i]) for i in range(len(vector))])
+				vector = vector / np.linalg.norm(vector,2)
 				felines[name].append(vector)
 
 		return canines, felines
